@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+class Motion {
+    private:
+        float distance, time;
+    public:
+        Motion() {
+            cout << "Enter distance (meters): ";
+            cin >> distance;
+            cout << "Enter time (seconds): ";
+            cin >> time;
+        }
+        friend float calculateVelocity(Motion m);
+};
+
+float calculateVelocity(Motion m) {
+    return m.distance / m.time;
+}
+
+int main() {
+    Motion obj;
+    cout << "Velocity: " << calculateVelocity(obj) << " m/s" << endl;
+    return 0;
+}
