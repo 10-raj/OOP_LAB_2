@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+class Time
+{
+	int hh,mm,ss;
+	public:
+		Time()
+		{
+			
+		}
+	Time(int x, int y, int z)
+	{
+		hh=x;
+		mm=y;
+		ss=z;
+	}
+	void display(Time &t1,Time &t2)
+	{
+		Time t3;
+		t3.hh = t1.hh+t2.hh;
+		t3.mm = t1.mm+t2.mm;
+		t3.ss = t1.ss+t2.ss;
+		do
+		{
+			if (t3.ss>60)
+			{
+				t3.mm++;
+				t3.ss=t3.ss-60;
+			}
+			if (t3.mm>60)
+			{
+				t3.hh++;
+				t3.mm=t3.mm-60;
+			}
+	    }while((t3.ss>60)&&(t3.mm>60));
+		cout<<t3.hh<<":"<<t3.mm<<":"<<t3.ss;	
+	}
+};
+int main()
+{
+	Time t1(12,60,45);
+	Time t2(13,55,34);
+	Time t3;
+	t3.display(t1,t2);
+	return 0;
+}
