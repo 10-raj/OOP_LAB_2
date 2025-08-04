@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+class Temperature
+{
+	public:
+		double temp;
+		void getdata()
+		{
+			cout<<"Enter the Temperature in Farenheit";
+			cin>>temp;
+		}
+		void display()
+		{
+			cout << "Temperature in celsius is "<< (temp-32)/1.8;
+		}
+};
+int main()
+{
+	Temperature t1;
+	t1.getdata();
+	t1.display();
+	return 0;
+}
