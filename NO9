@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class FriendclassA;
+
+class FriendclassB {
+public:
+    void add(FriendclassA);
+    void subtract(FriendclassA);
+    void multiply(FriendclassA);
+    void divide(FriendclassA);
+};
+
+class FriendclassA {
+    int a, b;
+
+public:
+    FriendclassA(int x) { a = x; }
+
+    void getdata() {
+        cout << "Enter value for b: ";
+        cin >> b;
+    }
+
+    friend class FriendclassB;
+};
+
+void FriendclassB::add(FriendclassA obj) {
+    cout << "Addition: " << obj.a + obj.b << endl;
+}
+
+void FriendclassB::subtract(FriendclassA obj) {
+    cout << "Subtraction: " << obj.a - obj.b << endl;
+}
+
+void FriendclassB::multiply(FriendclassA obj) {
+    cout << "Multiplication: " << obj.a * obj.b << endl;
+}
+
+void FriendclassB::divide(FriendclassA obj) {
+    if (obj.b != 0)
+        cout << "Division: " << (double)obj.a / obj.b << endl;
+    else
+        cout << "Division by zero is not allowed!" << endl;
+}
+
+int main() {
+    FriendclassA objA(10); // Initialize 'a' through constructor
+    objA.getdata(); // Take user input for 'b'
+
+    FriendclassB objB;
+    objB.add(objA);
+    objB.subtract(objA);
+    objB.multiply(objA);
+    objB.divide(objA);
+
+    return 0;
+}
