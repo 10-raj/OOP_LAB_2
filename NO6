@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+class Account
+{
+	int account;
+	double balance;
+	static int min_bal; 
+
+	public:
+	 void Read()
+	 {
+	 	cout << "Enter Account Number: ";
+	 	cin >> account;
+	 	cout << "Enter Balance of the account: ";
+	 	cin >> balance;
+	 }
+
+	 void Display()
+	 {
+	 	cout << "Dear customer, \nYour Account Number " << account 
+	         << " has a balance of " << balance << endl;
+	 }
+
+	 static void DisplayMinBalance()
+	 {
+	 	cout << "Minimum balance is " << min_bal << endl;
+	 }
+};
+
+
+int Account::min_bal = 10;
+
+int main()
+{
+	Account a1;
+	a1.Read();
+	a1.Display();
+	Account::DisplayMinBalance(); 
+
+	return 0;
+}
