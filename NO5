@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+class Distance
+{
+	int ft,in;
+	public:
+		Distance(){}
+		Distance(int x,int y)
+		{
+			ft = x;
+			in = y;
+		}
+		
+		void display(Distance &d1, Distance &d2)
+		{
+			Distance d3;
+			d3.ft = d1.ft + d2.ft;
+			d3.in = d1.in + d2.in;
+			do
+			{
+			  if (in>12)
+			  {
+			  	ft++;
+			  	in-=12;
+			  }
+			}while(in>12);
+			cout<<ft<<"ft"<<in<<"inch";
+			
+		}
+};
+int main()
+{
+	Distance d1(12,13);
+	Distance d2(11,14);
+	Distance d3;
+	d3.display(d1,d2);
+	return 0;
+}
