@@ -1,0 +1,63 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Ticketbooth
+{
+    static int ticketsold;
+    static double current_money;
+    static int ticketnotsold;
+    const static double ticket_price;
+
+public:
+    static void sellTicket()
+    {
+        if (ticketnotsold > 0)
+        {
+            ticketsold++;
+            current_money += ticket_price;
+            ticketnotsold--;
+            cout << "Ticket sold successfully!" << endl;
+        }
+        else
+        {
+            cout << "No tickets left to sell!" << endl;
+        }
+    }
+
+    static void displayEarnings()
+    {
+        cout << fixed << setprecision(2);
+        cout << "Total money collected: $" << current_money << endl;
+    }
+
+    static void displayTicketStatus()
+    {
+        cout << "Tickets sold: " << ticketsold << endl;
+        cout << "Tickets remaining: " << ticketnotsold << endl;
+    }
+
+    static void initialize(int total_tickets)
+    {
+        ticketnotsold = total_tickets;
+        ticketsold = 0;
+        current_money = 0.0;
+    }
+};
+
+int Ticketbooth::ticketsold = 0;
+double Ticketbooth::current_money = 0.0;
+int Ticketbooth::ticketnotsold = 0;
+const double Ticketbooth::ticket_price = 2.50;
+
+int main()
+{
+    Ticketbooth::initialize(50);
+    Ticketbooth::sellTicket();
+    Ticketbooth::sellTicket();
+
+    Ticketbooth::displayEarnings();
+    Ticketbooth::displayTicketStatus();
+
+    return 0;
+}
