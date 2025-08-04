@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+class Student
+{
+	int id;
+	double marks;
+	public:
+		Student(){
+			id=4;
+			marks=57.5;
+		}
+		Student(int a, double b)
+		{
+			id = a;
+			marks = b;
+		}
+		Student(Student &t)
+		{
+			id = t.id;
+			marks = t.marks;
+		}
+		void display()
+		{
+			cout<<"Id is "<< id <<"\n Marks is "<<marks<<endl;
+		}
+};
+int main()
+{
+	Student S1;
+	Student S2(12,56);
+	Student S3(S2);
+	S1.display();
+	S2.display();
+	S3.display();
+	return 0;
+	
+}
